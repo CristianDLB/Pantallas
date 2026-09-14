@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi Cams</title>
+
+    <link rel="icon" type="image/png" href="logo.png?v=1">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Carter+One&family=Lilita+One&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.4.4/luxon.min.js"></script>
+
+
+    <script src="https://kit.fontawesome.com/d9fcacfc99.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+    <div class="space-bg">
+        <div class="stars"></div>
+        <div class="aurora aurora1"></div>
+        <div class="aurora aurora2"></div>
+    </div>
+
+    <main class="main">
+
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-top">
+                <img src="logo.png?v=1" alt="Multi Cams Logo">
+                <h2>Multi Cams</h2>
+                <button id="toggleSidebar" class="hide-btn" title="Ocultar Menú"><i class="fa-solid fa-angles-left"></i></button>
+            </div>
+            <div class="clock-wrapper">
+                <div class="clock">
+                    <span class="clock-dot"></span>
+                    <span id="liveClock">--:--:--</span>
+                    <span class="clock-zone" id="clockZone">Local</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <p class="label"><i class="fa-solid fa-location-arrow"></i> Distribución de Pantallas</p>
+                <div class="layouts">
+                    <button class="layout-btn active" data-layout="1">1</button>
+                    <button class="layout-btn" data-layout="2">2</button>
+                    <button class="layout-btn" data-layout="3">3</button>
+                    <button class="layout-btn" data-layout="4">4</button>
+                </div>
+            </div>
+
+            <div class="section selectors">
+                <p class="label"><i class="fa-solid fa-desktop"></i> Selección de Pantallas</p>
+
+                <div class="selector">
+                    <label><i class="fa-regular fa-compass"></i> PANTALLA 01</label>
+                    <button class="url-btn" id="btn-slot-0" data-slot="0"><i class="fa-solid fa-link"></i> URL Personalizada</button>
+                </div>
+
+                <div class="selector hidden">
+                    <label><i class="fa-regular fa-compass"></i> PANTALLA 02</label>
+                    <button class="url-btn" id="btn-slot-1" data-slot="1"><i class="fa-solid fa-link"></i> URL Personalizada</button>
+                </div>
+
+                <div class="selector hidden">
+                    <label><i class="fa-regular fa-compass"></i> PANTALLA 03</label>
+                    <button class="url-btn" id="btn-slot-2" data-slot="2"><i class="fa-solid fa-link"></i> URL Personalizada</button>
+                </div>
+
+                <div class="selector hidden">
+                    <label><i class="fa-regular fa-compass"></i> PANTALLA 04</label>
+                    <button class="url-btn" id="btn-slot-3" data-slot="3"><i class="fa-solid fa-link"></i> URL Personalizada</button>
+                </div>
+            </div>
+
+            <button class="fullscreen-btn" id="fullscreenBtn">
+                <i class="fa-solid fa-tv"></i> Pantalla Completa
+            </button>
+            <hr class="hr-abajo">
+        </aside>
+
+        <button class="show-sidebar hidden" id="showSidebar" title="Mostrar menú"><i class="fa-solid fa-angles-right"></i></button>
+
+        <section class="viewer">
+            <div class="grid layout-1" id="grid">
+                <div class="stream" data-index="0">
+                    <div class="placeholder">Pantalla 01 </div>
+                </div>
+                <div class="stream hidden-slot" data-index="1">
+                    <div class="placeholder">Pantalla 02 </div>
+                </div>
+                <div class="stream hidden-slot" data-index="2">
+                    <div class="placeholder">Pantalla 03 </div>
+                </div>
+                <div class="stream hidden-slot" data-index="3">
+                    <div class="placeholder">Pantalla 04 </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div class="modal hidden" id="urlModal">
+        <div class="modal-content">
+            <button id="closeModalX" class="close-modal-x" title="Cerrar"><i
+                    class="fa-regular fa-circle-xmark"></i></button>
+            <h3>Transmisión URL</h3>
+
+            <div class="input-wrapper">
+                <input type="text" id="customUrlInput" placeholder="https://ejemplo.com/stream">
+                <button id="clearInputBtn" class="clear-input-btn" title="Limpiar texto"><i
+                        class="fa-solid fa-trash-can"></i></button>
+            </div>
+
+            <div class="modal-buttons">
+                <button id="cancelModal">Cancelar</button>
+                <button id="acceptModal"><i class="fa-solid fa-check"></i> Cargar Stream</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

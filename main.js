@@ -103,7 +103,7 @@ function updateSingleStreamContainer(slotIndex, url) {
   if (url) {
     streamSlot.innerHTML = `
       <div class="stream-label">Pantalla ${displayIndex}</div>
-      <button class="close-stream" data-close="${slotIndex}" title="Eliminar feed">✕</button>
+      <button class="close-stream" data-close="${slotIndex}" title="Cerrar">✕</button>
       <iframe src="${url}" allowfullscreen allow="autoplay; encrypted-media"></iframe>
     `;
     

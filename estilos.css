@@ -559,7 +559,8 @@ body::after {
 
 .stream-label {
   top: 12px;
-  left: 12px;
+  left: 50%;
+  transform: translateX(-50%);
   padding: 6px 12px;
   border: 1px solid #72d6ff;
   /* Borde cian */
@@ -658,7 +659,7 @@ body::after {
   justify-content: center;
   width: 24px;
   height: 24px;
-  border-radius: 50%;
+  border-radius: 20%;
   transition: all 0.2s;
 }
 
@@ -714,11 +715,18 @@ body::after {
   color: #72d6ff;
   font-size: 16px;
   cursor: pointer;
-  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 20%;
+  transition: all 0.2s;
 }
 
 .close-modal-x:hover {
   color: #ef4444;
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .hidden {

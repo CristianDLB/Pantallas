@@ -101,10 +101,19 @@ function updateSingleStreamContainer(slotIndex, url) {
   const displayIndex = String(slotIndex + 1).padStart(2, '0');
 
   if (url) {
+    // ID oficial de la extensión VideoPlayer MPD/M3U8/IPTV/EPG
+    const extensionId = "opmeopcambhfimffbomjgemehjkbbmji";
+    let targetSrc = url;
+
+    // Si es un archivo .m3u8, redirigimos a la página interna de la extensión dentro del iframe
+    if (url.includes(".m3u8")) {
+      targetSrc = `chrome-extension://${extensionId}/pages/player.html#${url}`;
+    }
+
     streamSlot.innerHTML = `
       <div class="stream-label">Pantalla ${displayIndex}</div>
       <button class="close-stream" data-close="${slotIndex}" title="Cerrar">✕</button>
-      <iframe src="${url}" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+      <iframe src="${targetSrc}" scrolling="no" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>
     `;
     
     // Vinculamos el evento de borrado específicamente a este nuevo botón 'X'
